@@ -18,7 +18,7 @@ function Header(props) {
           style={styles.imagen}
           />
           <View style={styles.letra}>
-            <Text>Hola que hace</Text>
+            <Text>Acomer Tacna</Text>
           </View>
       </View>
       </SafeAreaView>
