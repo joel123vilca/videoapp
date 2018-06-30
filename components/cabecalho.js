@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 export default props => (
 	<View style={styles.topo}>
-		<Text style={styles.txtTitulo}>Hallar Datos del Triangulo</Text>
+		<Text style={styles.txtTitulo}>convertir grados Centigrados</Text>
 	</View>
 );
 
