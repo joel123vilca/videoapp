@@ -44,12 +44,31 @@ export default class App extends Component<Props> {
       numero1= parseFloat(num1);
       //numero2= parseFloat(num2);
       //numero3 = parseFloat(num3);
-      resultado = 0;
-      while(numero1 > 0){
-        resultado = resultado + numero1;
-        numero1 = numero1 - 1;
+      monto = 0;
+      vventa = 0;
+      impuesto = 0;
+      vfactura = 0;
+      dsct = '';
+      if(numero1 > 100){
+        monto = numero1*0.3;
+        dsct = '30%';
+      }else if(numero1>60){
+        monto = numero1*0.2;
+        dsct = '20%'
+      }else if(numero1>30){
+        monto = numero1*0.15;
+        dsct='15%';
+      }else {
+        monto = numero1*0.1;
+        dsct = '10%';
       }
-      	this.setState({ resultado: resultado.toString() });
+        vventa = numero1 - monto;
+      	this.setState({ vventa: vventa.toString() });
+        this.setState({ dsct: dsct.toString() });
+        impuesto = vventa*0.18;
+        this.setState({ impuesto: impuesto.toString() });
+        vfactura = vventa + impuesto;
+        this.setState({ vfactura: vfactura.toString() });
         // resultados = resultado - numero1;
         // this.setState({ resultados: resultados.toString() });
 
@@ -61,7 +80,7 @@ export default class App extends Component<Props> {
         <Topo/>
          <TextInput style = {styles.input}
             underlineColorAndroid = "transparent"
-            placeholder = "Ingresa el numero entero"
+            placeholder = "Ingrese cantidad de la compra"
             placeholderTextColor = "#9a73ef"
             autoCapitalize = "none"
             onChangeText = {this.handleMonto}/>
@@ -73,8 +92,18 @@ export default class App extends Component<Props> {
             <Text style = {styles.submitButtonText}> Calcular </Text>
          </TouchableOpacity>
          <Text style = {styles.respuesta}>
-            Resultado de sumatoria: {this.state.resultado}
+            valor de la venta: {this.state.vventa}
           </Text>
+
+          <Text style = {styles.respuesta}>
+             Descuento: {this.state.dsct}
+           </Text>
+          <Text style = {styles.respuesta}>
+              Impuesto: {this.state.impuesto}
+          </Text>
+         <Text style = {styles.respuesta}>
+             valor de la factura: {this.state.vfactura}
+         </Text>
       </View>
     );
   }
