@@ -32,18 +32,23 @@ export default class App extends Component<Props> {
      resultado: '',
      resultados: '',
   }
-  handleEmail = (text) => {
+  handleMonto = (text) => {
      this.setState({ num1: text })
   }
-  // handlePassword = (text) => {
-  //    this.setState({ num2: text })
-  // }
-  login = (num1) => {
+   handleInteres = (text) => {
+     this.setState({ num2: text })
+  }
+  handlePeriodo = (text) => {
+    this.setState({ num3: text })
+ }
+  calcular = (num1, num2 , num3) => {
       numero1= parseFloat(num1);
-      //numero2= parseFloat(num2);
-      resultado = numero1*1.8 + 32;
+      numero2= parseFloat(num2);
+      numero3 = parseFloat(num3);
+      monto = numero1*Math.pow(1+numero2/100,numero3);
+      resultado = monto.toFixed(2);
       	this.setState({ resultado: resultado.toString() });
-        resultados = parseFloat(num1)  + 273.15;
+        resultados = resultado - numero1;
         this.setState({ resultados: resultados.toString() });
 
   }
@@ -54,21 +59,33 @@ export default class App extends Component<Props> {
         <Topo/>
          <TextInput style = {styles.input}
             underlineColorAndroid = "transparent"
-            placeholder = "grados centigrados"
+            placeholder = "Monto del Capital"
             placeholderTextColor = "#9a73ef"
             autoCapitalize = "none"
-            onChangeText = {this.handleEmail}/>
+            onChangeText = {this.handleMonto}/>
+        <TextInput style = {styles.input}
+               underlineColorAndroid = "transparent"
+               placeholder = "Porcentaje de Interes"
+               placeholderTextColor = "#9a73ef"
+               autoCapitalize = "none"
+               onChangeText = {this.handleInteres}/>
+        <TextInput style = {styles.input}
+                  underlineColorAndroid = "transparent"
+                  placeholder = "Numero de Periodos"
+                  placeholderTextColor = "#9a73ef"
+                  autoCapitalize = "none"
+                  onChangeText = {this.handlePeriodo}/>
 
          <TouchableOpacity
             style = {styles.submitButton}
-            onPress = {() => this.login(this.state.num1)}>
+            onPress = {() => this.calcular(this.state.num1,this.state.num2,this.state.num3)}>
             <Text style = {styles.submitButtonText}> Calcular </Text>
          </TouchableOpacity>
          <Text style = {styles.respuesta}>
-            Fahrenheit: {this.state.resultado}
+            Monto total: {this.state.resultado}
           </Text>
            <Text style = {styles.respuesta}>
-              Kelvin: {this.state.resultados}
+              interes a pagar: {this.state.resultados}
             </Text>
       </View>
     );

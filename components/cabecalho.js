@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 export default props => (
 	<View style={styles.topo}>
-		<Text style={styles.txtTitulo}>convertir grados Centigrados</Text>
+		<Text style={styles.txtTitulo}>Calcular Interes Compuesto</Text>
 	</View>
 );
 
