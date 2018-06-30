@@ -9,8 +9,9 @@ export default class Operacion extends Component {
 				selectedValue={this.props.operacion}
 				onValueChange={op => { this.props.atualizaOperacion(op); }}
 			>
-				<Picker.Item label='Suma' value='soma' />
-				<Picker.Item label='Sustraccion' value='subtracao' />
+				<Picker.Item label='Suma' value='suma' />
+				<Picker.Item label='Sustraccion' value='sustraccion' />
+				<Picker.Item label='multiplicacion' value='multiplica' />
 			</Picker>
 		);
 	}

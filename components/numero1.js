@@ -1,15 +1,14 @@
 import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
-const Numero = props => (
+const Numero1 = props => (
 	<TextInput
 		style={styles.numero}
-		value={props.num1}
-		nome='num1'
+		value={props.num2}
 	/>
 );
-export  { Numero };
 
+export  { Numero1 };
 const styles = StyleSheet.create({
 	numero: {
 		width: 140,

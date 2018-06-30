@@ -3,7 +3,8 @@ import { View, Text } from 'react-native';
 import Visor from './visor'
 
 const Resultado = props => (
-	<Visor resultado={props.resultado} />
+	<Visor resultado={props.resultado}
+	/>
 );
 
-export { Resultado };
+export { Resultado};
