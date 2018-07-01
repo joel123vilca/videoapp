@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 export default props => (
 	<View style={styles.topo}>
-		<Text style={styles.txtTitulo}>Calcular factura de una tienda</Text>
+		<Text style={styles.txtTitulo}>Convertir a medidas</Text>
 	</View>
 );
 
