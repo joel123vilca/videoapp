@@ -11,9 +11,14 @@ import {
 import Home from './src/screens/containers/home';
 import Header from './src/sections/components/header';
 import SuggestionList from './src/videos/containers/suggestion-list.js';
+import API from './utils/api';
 
 type Props = {};
 export default class App extends Component<Props> {
+  async componentDidMount(){
+    const movies = await API.getSuggestion(10);
+    console.log(movies);
+  }
   render() {
     return (
         <Home>
@@ -23,6 +28,7 @@ export default class App extends Component<Props> {
     );
   }
 }
+//al usar await necesitas de async
 //https://www.tutorialspoint.com/react_native/react_native_text_input.htm
 // import React, { Component } from 'react'
 // import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native'
