@@ -18,7 +18,7 @@ function Header(props) {
           style={styles.imagen}
           />
           <View style={styles.letra}>
-            <Text>Acomer Tacna</Text>
+          <Text>EDUTAK</Text>
           </View>
       </View>
       </SafeAreaView>
@@ -28,7 +28,7 @@ function Header(props) {
 const styles = StyleSheet.create({
   imagen: {
     width: 200,
-    height: 26,
+    height: 28,
     resizeMode: 'contain',
   },
   logo: {
@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   letra: {
-    backgroundColor: 'green',
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'flex-end',
